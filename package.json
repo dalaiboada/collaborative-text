@@ -1,0 +1,23 @@
+{
+  "name": "collaborative-text",
+  "version": "1.0.0",
+  "description": "Este proyecto es una aplicación mínima de prueba construida con Node.js y Express. Su objetivo principal es **validar la configuración de una dirección IP estática** en un servidor, asegurando que el servidor Express escuche correctamente en todas las interfaces de red (`0.0.0.0`).",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dalaiboada/collaborative-text.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dalaiboada/collaborative-text/issues"
+  },
+  "homepage": "https://github.com/dalaiboada/collaborative-text#readme",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
