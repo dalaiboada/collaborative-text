@@ -13,12 +13,18 @@ const __dirname = path.dirname(__filename);
 const app = express();
 const PORT = 4000;
 const HOST = '0.0.0.0'; 
+const IP = '192.168.1.34';
+
+const allowedOrigins = [
+    `http://${IP}:${PORT}`,
+    `http://localhost:${PORT}`
+];
 
 // Crear servidor HTTP y adjuntar Socket.IO
 const server = http.createServer(app); 
 const io = new Server(server, {
     cors: {
-        origin: "*", 
+        origin: allowedOrigins,
         methods: ["GET", "POST"]
     }
 });
@@ -30,7 +36,12 @@ app.use(express.json());
 
 // Configuración de CORS de Express
 app.use((req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', '*');
+    const origin = req.headers.origin;
+
+    if (allowedOrigins.includes(origin)) {
+        res.setHeader('Access-Control-Allow-Origin', origin);
+    }
+    
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST');
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
     next();
